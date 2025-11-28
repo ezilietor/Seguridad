@@ -1,0 +1,86 @@
+OPENVPN Practica
+* Tener la maquina de ubuntu de DigitalOcean ya creada
+
+Instalar Pritunl
+
+# 1. Actualizar el sistema
+sudo apt update && sudo apt upgrade -y
+
+# 2. Agregar repositorios de MongoDB y Pritunl
+sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list << EOF
+deb https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse
+EOF
+
+sudo tee /etc/apt/sources.list.d/pritunl.list << EOF
+deb https://repo.pritunl.com/stable/apt jammy main
+EOF
+
+# 3. Agregar las llaves GPG
+curl -fsSL https://raw.githubusercontent.com/pritunl/pgp/master/pritunl_repo_pub.asc | sudo apt-key add -
+
+#Verificar la llave de MongoDB
+curl -fsSL https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+
+# 4. Instalar paquetes e iniciar servicios
+sudo apt update
+sudo apt install pritunl mongodb-org -y
+sudo systemctl start mongod pritunl
+sudo systemctl enable mongod pritunl
+
+# 5. Obtener la Setup Key y copiarla
+sudo pritunl setup-key
+
+# 6. Luego ir al navegador web y poner la IP publica de mi maquina de DigitalOcean
+
+https://IP_Maquina
+
+# 7. Aqui poner la Setup Key
+
+# 8. Obtener las credenciales para el usuario 
+sudo pritunl default-password
+
+# 9. Ve a la pestaña de usuarios y selecciona Add Organization 
+nombre: ClaseVPN
+
+# 10. Luego añades el usuario y el nombre que te plazca
+Nombre: Cualquiera
+Pin: Matricula o cualquiera
+
+# 11. Ve al apartado de Servers
+Nombre: Cualquiera
+Puerto: 1194 
+Virtual Network: la que este ahi. 
+
+# 12. Ve a Attach Organization y con los datos que están ahi le das a Attack. y Luego le das al botón de Start Server de color verde
+
+=============Crear el archive entregable===========
+
+# 1. Ve a la pestaña de Users
+Donde esta el nombre de usuario dale al Icono de la flecha hacia abajo y descargar.
+
+# 2. El archivo tar o zip. descomprímelo y ahi estará el archiv ovpn entregable ( los certificados ya están en el archivo ovpn porque lo descargaste desde la pagina pritunl.) si quiere comprobar que ahi están puede abrirlo con el bloc de notas :). 
+
+
+=============Para probar que funciona todo==============
+# 1. Instalar OpenVPN Connect en algún dispositivo. 
+
+# 2. Importar el archivo .ovpn descargado al cliente.
+
+# 3. Dale a conectar y pon tu pin(contraseña) de usuario ahi (El del paso # 10.).
+
+# 4. Ve a algun sitio web para validar tu ip y sera la de tu maquina en la nube. 
+
+# 5. Valida con un traceroute como pide el mandato (ve a la cmd y escribe traceroute 8.8.8.8) 
+
+==========Archivo que se entregara=========
+
+# 1. Crea la carpeta y dentro pondra lo siguiente
+UN PDF CON ESTO
+IP Servidor: 
+Usuario de printunl
+pin 
+EL ARCHIVO .OVPN
+
+# 2. Comprimir esta carpeta y subirla
+
+
