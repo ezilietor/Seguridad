@@ -67,7 +67,7 @@ Donde esta el nombre de usuario dale al Icono de la flecha hacia abajo y descarg
 
 # 2. Importar el archivo .ovpn descargado al cliente.
 
-# 3. Dale a conectar y pon tu pin(contraseña) de usuario ahi (El del paso # 10.).
+# 3. Dale a conectar y pon tu pin(contraseña) de usuario ahi (El del paso # 10, si lo hiciste sin contraseña no te pedira nada.).
 
 # 4. Ve a algun sitio web para validar tu ip y sera la de tu maquina en la nube. 
 
@@ -83,6 +83,7 @@ pin
 EL ARCHIVO .OVPN
 
 # 2. Comprimir esta carpeta y subirla
+
 
 
 
