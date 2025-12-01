@@ -42,7 +42,8 @@ sudo pritunl default-password
 # 9. Ve a la pestaña de usuarios y selecciona Add Organization 
 nombre: VPN
 
-# 10. Luego añades el usuario y el nombre que te plazca
+# 10. Luego añades el usuario y el nombre que te plazca (Ojo: si no quieres que tenga credenciales ni pida ni usuario ni contraseña, y solo quieres poder acceder desde
+el archivo crea el usuario pon un nombre pero no añadas un pin)
 Nombre: Cualquiera
 Pin: Matricula o cualquiera
 
@@ -82,6 +83,7 @@ pin
 EL ARCHIVO .OVPN
 
 # 2. Comprimir esta carpeta y subirla
+
 
 
 
