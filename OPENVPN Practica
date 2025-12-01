@@ -40,7 +40,7 @@ https://IP_Maquina
 sudo pritunl default-password
 
 # 9. Ve a la pestaña de usuarios y selecciona Add Organization 
-nombre: ClaseVPN
+nombre: VPN
 
 # 10. Luego añades el usuario y el nombre que te plazca
 Nombre: Cualquiera
@@ -82,5 +82,6 @@ pin
 EL ARCHIVO .OVPN
 
 # 2. Comprimir esta carpeta y subirla
+
 
 
